@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Space+Mono&family=Tulpen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Phudu&family=Tulpen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Raleway', 'Space Mono', sans-serif;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "0";
+    position: absolute;
+    top: -10px;
+    left: calc(50% - 5px);
+    color: rgba(255, 255, 255, 0.5);
+    animation: fall 3s linear infinite;
+}
+
+body::after {
+    content: "1";
+    position: absolute;
+    top: -10px;
+    left: calc(50% + 10px);
+    color: rgba(255, 255, 255, 0.5);
+    animation: fall 3s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 10px));
+        opacity: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, li, ul, ol, div, input, textarea, button {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5em;
+    color: rgb(181, 183, 185);
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.5em;
+    width: 30%;
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* Your existing CSS code */
+
+.box {
+    width: 100px;
+    height: 150px; /* Adjust height to accommodate the image and text */
+    margin: 5px;
+    overflow: hidden;
+    position: relative; /* Added to make sure text is positioned correctly */
+}
+
+.box-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.box-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box-content p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Add a background color to make text more readable */
+    color: white;
+    padding: 8px;
+    margin: 0;
+    text-align: center;
+}
+
+
+.box:hover {
+    transform: translateX(-5px) rotate(-2deg); /* Added hover effect with translation and rotation */
+}
+
+@media (max-width: 360px) {
+    .boxes-container {
+        flex-direction: column;
+    }
+
+    .box {
+        width: 100%;
+        width: 100px;
+    height: 100px;
+        margin: 5px 0;
+    }
+}
+
+footer {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+}
